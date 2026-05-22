@@ -11,7 +11,7 @@ export default function App() {
   useEffect(() => {
 
     axios.get(
-      "http://localhost:8080/api/auth/me",
+      "https://calm-fit-backend.onrender.com/api/auth/me",
       { withCredentials: true }
     )
       .then((res) => {

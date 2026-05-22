@@ -1,5 +1,5 @@
 export async function checkAuth() {
-    const res = await fetch("http://localhost:8080/api/auth/me", {
+    const res = await fetch("https://calm-fit-backend.onrender.com/api/auth/me", {
         credentials: "include",
     });
 

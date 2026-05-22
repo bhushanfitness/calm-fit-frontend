@@ -3,7 +3,7 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
-const API_BASE = "http://localhost:8080";
+const API_URL = "https://calm-fit-backend.onrender.com";
 
 export default function MainApp({ userName, goToLogin }) {
 
@@ -175,13 +175,13 @@ export default function MainApp({ userName, goToLogin }) {
     // 🔓 LOGOUT (NEW)
     const logout = async () => {
         await axios.post(
-            "http://localhost:8080/api/auth/logout",
+            "https://calm-fit-backend.onrender.com/api/auth/logout",
             {},
             { withCredentials: true }
         );
 
         window.location.href = "/";
-    };
+    }; xzßc
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-emerald-50 text-slate-800">
