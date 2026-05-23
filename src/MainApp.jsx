@@ -38,12 +38,12 @@ export default function MainApp({ userName, goToLogin }) {
 
 
     // 🔐 AUTH CHECK (NEW)
-    useEffect(() => {
-        axios.get(`${API_BASE}/api/auth/me`)
-            .catch(() => {
-                console.log("Auth check failed");
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`${API_BASE}/api/auth/me`)
+    //         .catch(() => {
+    //             console.log("Auth check failed");
+    //         });
+    // }, []);
 
     // 🔧 FIXED (removed userId)
     const fetchRoutine = async (day) => {
@@ -106,10 +106,10 @@ export default function MainApp({ userName, goToLogin }) {
         // check login first
         try {
 
-            const auth = await axios.get(
-                `${API_BASE}/api/auth/me`,
-                { withCredentials: true }
-            );
+            // const auth = await axios.get(
+            //     `${API_BASE}/api/auth/me`,
+            //     { withCredentials: true }
+            // );
 
             if (auth.data === "anonymousUser") {
                 closeModal();
