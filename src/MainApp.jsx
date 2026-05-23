@@ -138,13 +138,17 @@ export default function MainApp({ userName, goToLogin }) {
             closeModal();
             fetchRoutine(selectedDay);
 
-        } catch {
+        } catch (err) {
+            console.log("Status:", err.response?.status);
+            console.log("Data:", err.response?.data);
+            console.log("Full:", err);
+
             alert("Failed to save log");
         }
     };
 
     useEffect(() => {
-        fetch("/api/strength", {
+        fetch("https://calm-fit-backend.onrender.com/api/strength", {
             credentials: "include"
         })
             .then(res => res.json())
