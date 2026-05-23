@@ -39,7 +39,7 @@ export default function MainApp({ userName, goToLogin }) {
 
     // 🔐 AUTH CHECK (NEW)
     // useEffect(() => {
-    //     axios.get(`${API_BASE}/api/auth/me`)
+    //     axios.get(`${API_URL}/api/auth/me`)
     //         .catch(() => {
     //             console.log("Auth check failed");
     //         });
@@ -50,7 +50,7 @@ export default function MainApp({ userName, goToLogin }) {
         setLoading(true);
         try {
             const res = await axios.get(
-                `${API_BASE}/api/routine/day/${day}`
+                `${API_URL}/api/routine/day/${day}`
             );
             setRoutineData(res.data);
         } catch {
@@ -107,15 +107,15 @@ export default function MainApp({ userName, goToLogin }) {
         try {
 
             // const auth = await axios.get(
-            //     `${API_BASE}/api/auth/me`,
+            //     `${API_URL}/api/auth/me`,
             //     { withCredentials: true }
             // );
 
-            if (auth.data === "anonymousUser") {
-                closeModal();
-                goToLogin();
-                return;
-            }
+            // if (auth.data === "anonymousUser") {
+            //     closeModal();
+            //     goToLogin();
+            //     return;
+            // }
 
         } catch {
             closeModal();      // current log popup close
@@ -127,7 +127,7 @@ export default function MainApp({ userName, goToLogin }) {
         try {
 
             await axios.post(
-                `${API_BASE}/api/workout/log`,
+                `${API_URL}/api/workout/log`,
                 {
                     exerciseId: selectedExercise.exerciseId,
                     weight: parseFloat(weight),
@@ -181,7 +181,7 @@ export default function MainApp({ userName, goToLogin }) {
         );
 
         window.location.href = "/";
-    }; xzßc
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-emerald-50 text-slate-800">
