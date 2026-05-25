@@ -3,7 +3,7 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
-const API_URL = "https://calm-fit-backend.onrender.com";
+const API_URL = "http://13.233.88.8:8080";
 
 export default function MainApp({ userName, goToLogin }) {
 
