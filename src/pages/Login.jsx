@@ -13,8 +13,8 @@ export default function Login({ initialMode = "login" }) {
         e.preventDefault();
 
         const url = isSignup
-            ? "https://calm-fit-backend.onrender.com/api/auth/signup"
-            : "https://calm-fit-backend.onrender.com/api/auth/login";
+            ? "https://api.calmfit.in/api/auth/signup"
+            : "https://api.calmfit.in/api/auth/login";
 
         try {
             const res = await fetch(url, {

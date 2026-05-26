@@ -3,7 +3,7 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
-const API_URL = "http://13.233.88.8:8080";
+const API_URL = "https://api.calmfit.in";
 
 export default function MainApp({ userName, goToLogin }) {
 
@@ -148,7 +148,7 @@ export default function MainApp({ userName, goToLogin }) {
     };
 
     useEffect(() => {
-        fetch("https://calm-fit-backend.onrender.com/api/strength", {
+        fetch("https://api.calmfit.in/api/strength", {
             credentials: "include"
         })
             .then(res => res.json())
@@ -179,7 +179,7 @@ export default function MainApp({ userName, goToLogin }) {
     // 🔓 LOGOUT (NEW)
     const logout = async () => {
         await axios.post(
-            "https://calm-fit-backend.onrender.com/api/auth/logout",
+            "https://api.calmfit.in/api/auth/logout",
             {},
             { withCredentials: true }
         );
