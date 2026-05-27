@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "./config/api";
 
 axios.defaults.withCredentials = true;
 
-const API_URL = "https://api.calmfit.in";
+const API_URL = API_BASE_URL;
 
-export default function MainApp({ userName, goToLogin }) {
+export default function MainApp({ goToLogin, goToLanding }) {
 
     const [selectedDay, setSelectedDay] = useState(1);
     const [routineData, setRoutineData] = useState(null);
@@ -106,16 +107,16 @@ export default function MainApp({ userName, goToLogin }) {
         // check login first
         try {
 
-            // const auth = await axios.get(
-            //     `${API_URL}/api/auth/me`,
-            //     { withCredentials: true }
-            // );
+            const auth = await axios.get(
+                `${API_URL}/api/auth/me`,
+                { withCredentials: true }
+            );
 
-            // if (auth.data === "anonymousUser") {
-            //     closeModal();
-            //     goToLogin();
-            //     return;
-            // }
+            if (auth.data === "anonymousUser") {
+                closeModal();
+                goToLogin();
+                return;
+            }
 
         } catch {
             closeModal();      // current log popup close
@@ -148,7 +149,7 @@ export default function MainApp({ userName, goToLogin }) {
     };
 
     useEffect(() => {
-        fetch("https://api.calmfit.in/api/strength", {
+        fetch(`${API_BASE_URL}/api/workout/strength`, {
             credentials: "include"
         })
             .then(res => res.json())
@@ -177,14 +178,28 @@ export default function MainApp({ userName, goToLogin }) {
     };
 
     // 🔓 LOGOUT (NEW)
-    const logout = async () => {
-        await axios.post(
-            "https://api.calmfit.in/api/auth/logout",
-            {},
-            { withCredentials: true }
-        );
 
-        window.location.href = "/";
+    const logout = async () => {
+        console.log("1: Logout clicked");
+
+        try {
+            const response = await axios.post(
+                `${API_BASE_URL}/api/auth/logout`,
+                {},
+                { withCredentials: true }
+            );
+
+            console.log("3: API success", response);
+
+        } catch (err) {
+            console.log("4: API failed");
+            console.log(err);
+            console.log(err.response);
+        }
+
+        localStorage.removeItem("token");
+
+        goToLanding();
     };
 
     return (

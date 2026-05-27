@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { API_BASE_URL } from "../config/api";
 export default function Login({ initialMode = "login" }) {
 
     const [email, setEmail] = useState("");
@@ -13,8 +13,8 @@ export default function Login({ initialMode = "login" }) {
         e.preventDefault();
 
         const url = isSignup
-            ? "https://api.calmfit.in/api/auth/signup"
-            : "https://api.calmfit.in/api/auth/login";
+            ? `${API_BASE_URL}/api/auth/signup`
+            : `${API_BASE_URL}/api/auth/login`;
 
         try {
             const res = await fetch(url, {

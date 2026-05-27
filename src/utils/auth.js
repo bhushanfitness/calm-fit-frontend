@@ -1,7 +1,12 @@
+import { API_BASE_URL } from "./config/api";
+
 export async function checkAuth() {
-    const res = await fetch("https://api.calmfit.in/api/auth/me", {
-        credentials: "include",
-    });
+    const res = await fetch(
+        `${API_BASE_URL}/api/auth/me`,
+        {
+            credentials: "include",
+        }
+    );
 
     return res.ok;
 }

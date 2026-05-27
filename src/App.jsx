@@ -3,6 +3,7 @@ import axios from "axios";
 import LandingPage from "./LandingPage";
 import MainApp from "./MainApp";
 import Login from "./pages/Login";
+import { API_BASE_URL } from "./config/api";
 
 export default function App() {
 
@@ -11,7 +12,7 @@ export default function App() {
   useEffect(() => {
 
     axios.get(
-      "https://api.calmfit.in/api/auth/me",
+      `${API_BASE_URL}/api/auth/me`,
       { withCredentials: true }
     )
       .then((res) => {
@@ -48,6 +49,7 @@ export default function App() {
   return (
     <MainApp
       goToLogin={() => setStep("login")}
+      goToLanding={() => setStep("landing")}
     />
   );
 }
