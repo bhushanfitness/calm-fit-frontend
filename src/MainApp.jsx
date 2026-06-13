@@ -232,41 +232,6 @@ export default function MainApp({ goToLogin, goToLanding }) {
 
             <div className="max-w-7xl mx-auto px-6 py-10">
 
-                {/* MIND SESSION CARD */}
-                <div className="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 mb-8 flex justify-between items-center">
-
-                    <div>
-                        <h3 className="text-lg font-semibold flex items-center gap-2">
-                            🧘 Mind Session
-                        </h3>
-
-                        <p className="text-slate-500 text-sm">
-                            5 min guided breathing
-                        </p>
-
-                        <p className="text-sm text-emerald-600 mt-1">
-                            Mind Streak: {mindStreak} Day{mindStreak !== 1 && "s"}
-                        </p>
-                    </div>
-
-                    <div className="text-right">
-                        <p className="text-2xl font-bold text-emerald-600 mb-3">
-                            {formatTime(secondsLeft)}
-                        </p>
-
-                        <button
-                            onClick={() => setMeditating(!meditating)}
-                            className={`px-4 py-2 rounded-xl text-sm font-semibold transition ${meditating
-                                ? "bg-red-500 text-white"
-                                : "bg-emerald-600 text-white hover:bg-emerald-700"
-                                }`}
-                        >
-                            {meditating ? "Stop" : "Start"}
-                        </button>
-                    </div>
-
-                </div>
-
                 {/* SMART EATS CARD */}
                 <div className="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 mb-8">
 
@@ -345,7 +310,7 @@ export default function MainApp({ goToLogin, goToLanding }) {
                             <tr>
                                 <th className="px-6 py-4">Exercise</th>
                                 <th className="px-6 py-4">Wt (8)</th>
-                                <th className="px-6 py-4">Wt (10)</th>
+                                {/* <th className="px-6 py-4">Wt (10)</th>  */}
                                 <th className="px-6 py-4">Wt (12)</th>
                                 <th className="px-6 py-4 text-right">Action</th>
                             </tr>
@@ -366,7 +331,7 @@ export default function MainApp({ goToLogin, goToLanding }) {
                                         </td>
 
                                         <td className="px-6 py-4">{ex.wt8 ?? "-"}</td>
-                                        <td className="px-6 py-4">{ex.wt10 ?? "-"}</td>
+                                        {/* <td className="px-6 py-4">{ex.wt10 ?? "-"}</td> */}
                                         <td className="px-6 py-4">{ex.wt12 ?? "-"}</td>
 
                                         <td className="px-6 py-4 text-right">

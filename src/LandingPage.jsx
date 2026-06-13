@@ -21,8 +21,7 @@ export default function LandingPage({ onGetStarted, onLoginClick }) {
                     </h2>
 
                     <p className="max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">
-                        A structured strength system designed to build muscle,
-                        improve recovery, and stabilize your mind.
+                        A simple strength system designed to build muscle and lose fat
                     </p>
 
                 </div>
@@ -57,20 +56,16 @@ export default function LandingPage({ onGetStarted, onLoginClick }) {
                             Build Strength
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed">
-                            Progressive overload.
-                            Structured 5-day split.
-                            Track real strength growth.
+                            Boost strength and muscle growth by consistently increasing weight, frequency
                         </p>
                     </div>
 
                     <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-100">
                         <h3 className="text-xl font-bold mb-4 text-sky-600">
-                            Calm Your Nervous System
+                            Quick Logging
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed">
-                            Short breathing resets.
-                            Reduce stress hormones.
-                            Improve recovery and focus.
+                            Recort at lightning speed, keeping focus on your workout
                         </p>
                     </div>
 
@@ -79,8 +74,8 @@ export default function LandingPage({ onGetStarted, onLoginClick }) {
                             Sustainable Results
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed">
-                            No extreme diets.
-                            No burnout cycles.
+                            No extreme diets
+                            No burnout cycles
                             Consistency over motivation.
                         </p>
                     </div>
@@ -95,13 +90,11 @@ export default function LandingPage({ onGetStarted, onLoginClick }) {
                     </h3>
 
                     <p className="text-gray-600 leading-relaxed mb-4">
-                        Muscle grows in recovery.
-                        Performance improves when your nervous system is stable.
-                        Strength without control leads to burnout.
+                        No complex diets. No workout guesswork. Just train, log, and enjoy the process
                     </p>
 
                     <p className="text-emerald-600 font-semibold text-lg">
-                        CalmFit is controlled strength.
+                        CalmFit is a calmer way to get fit
                     </p>
 
                 </div>
