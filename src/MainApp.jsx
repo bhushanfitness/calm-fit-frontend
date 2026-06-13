@@ -20,6 +20,7 @@ export default function MainApp({ goToLogin, goToLanding }) {
     const [meditating, setMeditating] = useState(false);
     const [secondsLeft, setSecondsLeft] = useState(300);
     const [userEmail, setUserEmail] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const [completedDays, setCompletedDays] = useState(() => {
         const saved = localStorage.getItem("completedDays");
@@ -39,12 +40,21 @@ export default function MainApp({ goToLogin, goToLanding }) {
 
 
     // 🔐 AUTH CHECK (NEW)
-    // useEffect(() => {
-    //     axios.get(`${API_URL}/api/auth/me`)
-    //         .catch(() => {
-    //             console.log("Auth check failed");
-    //         });
-    // }, []);
+    useEffect(() => {
+        axios.get(
+            `${API_URL}/api/auth/me`,
+            { withCredentials: true }
+        )
+            .then((res) => {
+
+                if (res.data !== "anonymousUser") {
+                    setIsLoggedIn(true);
+                    setUserEmail(res.data);
+                }
+
+            })
+            .catch(() => { });
+    }, []);
 
     // 🔧 FIXED (removed userId)
     const fetchRoutine = async (day) => {
@@ -199,6 +209,9 @@ export default function MainApp({ goToLogin, goToLanding }) {
 
         localStorage.removeItem("token");
 
+        setIsLoggedIn(false);
+        setUserEmail("");
+
         goToLanding();
     };
 
@@ -213,19 +226,27 @@ export default function MainApp({ goToLogin, goToLanding }) {
                     </h1>
 
                     <div className="text-right">
-                        <p className="text-sm text-slate-500">Welcome</p>
+                        {isLoggedIn ? (
+                            <>
+                                <p className="text-sm text-slate-500">Welcome</p>
 
-                        {/* ❌ REMOVED TEST LOGIN */}
+                                <button
+                                    onClick={logout}
+                                    className="ml-4 px-3 py-1 bg-red-500 text-white rounded"
+                                >
+                                    Logout
+                                </button>
 
-                        {/* ✅ LOGOUT BUTTON */}
-                        <button
-                            onClick={logout}
-                            className="ml-4 px-3 py-1 bg-red-500 text-white rounded"
-                        >
-                            Logout
-                        </button>
-
-                        <p className="font-semibold">{userEmail}</p>
+                                <p className="font-semibold">{userEmail}</p>
+                            </>
+                        ) : (
+                            <button
+                                onClick={goToLogin}
+                                className="px-3 py-1 bg-emerald-600 text-white rounded"
+                            >
+                                Login
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
