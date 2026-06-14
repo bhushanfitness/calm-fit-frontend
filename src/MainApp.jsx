@@ -11,6 +11,7 @@ export default function MainApp({ goToLogin, goToLanding }) {
     const [selectedDay, setSelectedDay] = useState(1);
     const [routineData, setRoutineData] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [strength, setStrength] = useState(null);
 
     const [showModal, setShowModal] = useState(false);
     const [selectedExercise, setSelectedExercise] = useState(null);
