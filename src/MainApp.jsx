@@ -370,7 +370,7 @@ export default function MainApp({ goToLogin, goToLanding }) {
                 </div>
 
                 {/* STRENGTH CARD */}
-                {/* <div className="bg-emerald-50 rounded-2xl border border-emerald-200 p-6 mt-10 shadow-sm">
+                <div className="bg-emerald-50 rounded-2xl border border-emerald-200 p-6 mt-10 shadow-sm">
                     <div>
                         <h3 className="text-lg font-semibold">Your Strength Growth</h3>
                     </div>
@@ -378,7 +378,7 @@ export default function MainApp({ goToLogin, goToLanding }) {
                     <p className="text-3xl font-bold text-emerald-600">
                         {totalGain.toFixed(1)}%
                     </p>
-                </div> */}
+                </div>
             </div>
 
             {/* LOG MODAL */}
